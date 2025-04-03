@@ -151,5 +151,5 @@ if __name__ == "__main__":
     # Train PPO model
     model = train_ppo(env, total_timesteps=50000, verbose=1)
 
-    # # Evaluate model
-    # evaluate_ppo(model, env, n_eval_episodes=10, render=True)
+    # Evaluate model
+    evaluate_ppo(model, env, n_eval_episodes=10, render=True)

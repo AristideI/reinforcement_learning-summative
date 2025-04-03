@@ -10,8 +10,8 @@ from stable_baselines3.common.env_checker import check_env
 
 # Import our modules
 from environment.custom_env import DroneRescueEnv
-from training.dqn_training import train_dqn
-from training.pg_training import train_ppo
+from training.dqn_training import train_dqn, evaluate_dqn
+from training.pg_training import train_ppo, evaluate_ppo
 
 # Register the custom environment
 gym.register(
@@ -57,12 +57,12 @@ def run_dqn_training(timesteps=50000, render_eval=True):
     else:
         eval_env = gym.make("DroneRescue-v0")
 
-    # mean_reward, std_reward = evaluate_dqn(
-    #     model, eval_env, n_eval_episodes=5, render=render_eval
-    # )
-    # print(
-    #     f"DQN training completed! Mean reward: {mean_reward:.2f} +/- {std_reward:.2f}"
-    # )
+    mean_reward, std_reward = evaluate_dqn(
+        model, eval_env, n_eval_episodes=5, render=render_eval
+    )
+    print(
+        f"DQN training completed! Mean reward: {mean_reward:.2f} +/- {std_reward:.2f}"
+    )
 
     return model
 
@@ -83,12 +83,12 @@ def run_ppo_training(timesteps=50000, render_eval=True):
     else:
         eval_env = gym.make("DroneRescue-v0")
 
-    # mean_reward, std_reward = evaluate_ppo(
-    #     model, eval_env, n_eval_episodes=5, render=render_eval
-    # )
-    # print(
-    #     f"PPO training completed! Mean reward: {mean_reward:.2f} +/- {std_reward:.2f}"
-    # )
+    mean_reward, std_reward = evaluate_ppo(
+        model, eval_env, n_eval_episodes=5, render=render_eval
+    )
+    print(
+        f"PPO training completed! Mean reward: {mean_reward:.2f} +/- {std_reward:.2f}"
+    )
 
     return model
 

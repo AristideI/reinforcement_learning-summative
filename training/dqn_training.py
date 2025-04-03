@@ -141,19 +141,19 @@ def train_dqn(
     return model
 
 
-# def evaluate_dqn(model, env, n_eval_episodes=10, render=False):
-#     # Check if the environment supports the 'render' method (no need for 'render_mode' setting)
-#     if render and hasattr(env, "render"):
-#         # Use the default render method for rendering
-#         env.render()
+def evaluate_dqn(model, env, n_eval_episodes=10, render=False):
+    # Check if the environment supports the 'render' method (no need for 'render_mode' setting)
+    if render and hasattr(env, "render"):
+        # Use the default render method for rendering
+        env.render()
 
-#     # Evaluate the model using the evaluate_policy function
-#     mean_reward, std_reward = evaluate_policy(
-#         model, env, n_eval_episodes=n_eval_episodes
-#     )
-#     print(f"Mean reward: {mean_reward:.2f} +/- {std_reward:.2f}")
+    # Evaluate the model using the evaluate_policy function
+    mean_reward, std_reward = evaluate_policy(
+        model, env, n_eval_episodes=n_eval_episodes
+    )
+    print(f"Mean reward: {mean_reward:.2f} +/- {std_reward:.2f}")
 
-#     return mean_reward, std_reward
+    return mean_reward, std_reward
 
 
 if __name__ == "__main__":
