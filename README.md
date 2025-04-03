@@ -4,7 +4,11 @@ This project implements a simulated drone search and rescue mission using reinfo
 
 ## Video Demo
 
-![Demo](./demo/demo.mov)
+
+
+https://github.com/user-attachments/assets/5b2a1704-5cc3-4202-9731-bbb040300ab4
+
+
 
 ## Environment
 
